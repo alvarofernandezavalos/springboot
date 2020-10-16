@@ -45,4 +45,10 @@ public class BooksREST {
   public void insertBook(@RequestBody Books book) {
     booksDAO.save(book);
   }
+
+  @RequestMapping(value="{bookId}", method = RequestMethod.POST )
+  public void updateBook(@PathVariable("bookId") Integer id, @RequestBody Books book) {
+    book.setId(id);
+    booksDAO.save(book);
+  }
 }
