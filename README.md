@@ -1,7 +1,7 @@
 # Backend SpringBoot CRUD de Libros
 
-## Startup ddbb
-  docker-compose up -d
+## Startup DDBB
+```docker-compose up -d```
 
 ##  Actualización 19/12/2023
   Upgrade SpringBoot from 2.3.4 to 3.1.5
