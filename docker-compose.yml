@@ -1,7 +1,7 @@
 version: '2.1'
 services:
 
-  mysqlcasino:
+  mysql:
     image: mysql:5.7.22
     network_mode: "host"
     environment:

@@ -1,7 +1,19 @@
-# Spring-Test
-## Startup DataBase
+# Backend SpringBoot CRUD de Libros
+
+## Startup ddbb
   docker-compose up -d
-##
-  Backend realizado en Spring para administrar libros
 
+##  Actualización 19/12/2023
+  Upgrade SpringBoot from 2.3.4 to 3.1.5
 
+  Nueva clase BookService implementa interficie IBookService (SOLID Polimorfismo)
+
+  Generada documentación con openapi.
+  [API](http://localhost:8080/v3/api-docs)
+  [Swagger](http://localhost:8080/swagger-ui/index.html#/)
+  ![Screenshot](swagger.png)
+
+## TODO
+  Basic Auth
+
+  Unit Testing
