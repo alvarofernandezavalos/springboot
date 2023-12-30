@@ -6,6 +6,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Table(name="books")
@@ -14,36 +16,14 @@ public class BookEntity {
   @Id
   @Column(name="id")
   @GeneratedValue(strategy=GenerationType.IDENTITY)
-  private int id;
+  private @Getter @Setter int id;
 
   @Column(name="name")
-  private String name;
+  private @Getter @Setter String name;
 
   @Column(name="prize")
-  private String prize;
-
-
-  public int getId() {
-    return id;
-  }
-
-  public void setId(int id) {
-    this.id = id;
-  }
-
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String typeGame) {
-    this.name = typeGame;
-  }
-
-  public String getPrize() {
-    return prize;
-  }
-
-  public void setPrize(String prize) {
-    this.prize = prize;
-  }
+  private @Getter @Setter String prize;
+  
+  @Column(name="npages")
+  private @Getter @Setter int number_pages;
 }
