@@ -1,7 +1,5 @@
 package local.backend.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,8 +23,9 @@ public class BookController {
   BookService bookService;
   
   @GetMapping()
-  public ResponseEntity<List<BookEntity>> getBooks() {
-    return ResponseEntity.ok(bookService.findAll().get());
+  public ResponseEntity<?> getBooks() {
+    if (bookService.findAll().get().size()>1) return ResponseEntity.ok(bookService.findAll().get());
+    return ResponseEntity.ok(bookService.findAll().get().getFirst());
   }
 
   @GetMapping(value="{bookId}")
