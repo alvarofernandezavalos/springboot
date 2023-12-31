@@ -1,7 +1,10 @@
 # Backend SpringBoot CRUD de Libros
 
-## Startup DDBB
-```docker-compose up -d```
+## Arrancar MySQL en local
+```
+cd dev/
+docker-compose up -d
+```
 
 ## API
   ![Screenshot](swagger.png)
