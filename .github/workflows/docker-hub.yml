@@ -16,6 +16,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - uses: entimaniac/read-pom-version-action@1.0.0
+      - name: Get Version
+        uses: ./
+        id: getVersion
+
       - uses: actions/setup-java@v3
         with:
           java-version: '21'
@@ -24,9 +29,6 @@ jobs:
       - name: Run MySQL for unit testing
         run: cd dev && docker-compose up -d
 
-      - name: Get Version
-        uses: ./
-        id: getVersion
 
       - name: Run the Maven verify goal
         run: mvn --batch-mode --update-snapshots verify
