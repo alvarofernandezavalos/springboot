@@ -7,9 +7,7 @@ on:
     branches: [ "master" ]
 
 env:
-  # Use docker.io for Docker Hub if empty
   REGISTRY: hanzou89
-  # github.repository as <account>/<repo>
   IMAGE_NAME: springboot
 
 jobs:
@@ -26,6 +24,10 @@ jobs:
       - name: Run MySQL for unit testing
         run: cd dev && docker-compose up -d
 
+      - name: Get Version
+        uses: ./
+        id: getVersion
+
       - name: Run the Maven verify goal
         run: mvn --batch-mode --update-snapshots verify
 
@@ -39,5 +41,8 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
+          platforms: linux/amd64
           push: true
-          tags: hanzou89/springboot:latest
+          tags:  |
+            - ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+            - ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.getVersion.outputs.version }}
